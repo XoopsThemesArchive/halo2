@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="Microsoft FrontPage 4.0" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+<!-- RMV: added module header -->
+
+
+</head>
+<body>
+
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+
+
+<table align="center" cellpadding="0" cellspacing="0" class="head_top">
+  <form action="<{$xoops_url}>/user.php" method="post">
+    <tr>
+    <td height="15">
+      
+      <span class="small" align="bottom"><{if $xoops_isuser}></span> <span class="left" align="bottom"><img src="<{$xoops_imageurl}>images/divider.gif" alt=""  border="0" /></span><span class="left" align="bottom"> <a href="<{$xoops_url}>/user.php">Your
+      account </a><img src="<{$xoops_imageurl}>images/divider.gif" alt=""  border="0" /><a href="<{$xoops_url}>/notifications.php"> Notifications </a><img src="<{$xoops_imageurl}>images/divider.gif" alt=""  border="0" /><{php}>
+GLOBAL $xoopsUser;
+$pm_handler =& xoops_gethandler('privmessage');
+$uid = $xoopsUser->getVar('uid');
+$criteria = new CriteriaCompo(new Criteria('read_msg', 0));
+$criteria->add(new Criteria('to_userid', $uid));
+$msgcount = $pm_handler->getCount($criteria);
+$GLOBALS['xoopsTpl']->assign('msgcount', $msgcount);
+<{/php}>
+
+<{if $msgcount > 0}> 
+<a class="highlight" href="<{$xoops_url}>/viewpmsg.php">Inbox (<span style="color:#ff0000; font-weight: bold;"><{$msgcount}></span>)</a>
+<{else}> 
+<a href="<{$xoops_url}>/viewpmsg.php">Inbox</a>
+<{/if}><img src="<{$xoops_imageurl}>images/divider.gif" alt=""  border="0" /><a href="<{$xoops_url}>/user.php?op=logout"> Log
+out </a><img src="<{$xoops_imageurl}>images/divider.gif" alt=""  border="0" /><{if
+      $xoops_isadmin}> <a href="<{$xoops_url}>/admin.php">admin
+menu</a> <a href="<{$xoops_url}>/notifications.php"> </a><img src="<{$xoops_imageurl}>images/divider.gif" alt=""  border="0" /><{/if}><{else}><a href="<{$xoops_url}>/user.php#lost">forgot
+password?</a> <img src="<{$xoops_imageurl}>images/spacer.gif" alt=""  border="0" /><a href="<{$xoops_url}>/register.php"> register
+NOW!</a><img src="<{$xoops_imageurl}>images/spacer.gif" alt=""  border="0" /> </span>
+      nick:
+        <input type="text" name="uname" size="12" value="<{$block.unamevalue}>" />
+          password:     
+          <input type="password" name="pass" size="12" />
+         <input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" />
+         <input type="hidden" name="op" value="login" />
+      <input name="submit" type="submit" value="login" /><input type="checkbox" name="rememberme" value="On" class ="formButton" />
+      remember me<{$block.lang_rememberme}><{/if}><span class="left" align="bottom"><img src="<{$xoops_imageurl}>images/spacer.gif" alt=""  border="0" /></span>    </td>
+  </tr>
+  </form> 
+</table>
+    
+<table align="center" cellpadding="0" cellspacing="0" class="head_table">
+  <tr> 
+    <td><a href="<{$xoops_url}>/">
+    </a><img src="<{$xoops_imageurl}>images/logo.jpg" alt="" border="0" /></td>
+  </tr>
+</table>
+<table align="center" cellpadding="0" cellspacing="0" class="head_buttons">
+  <form style="margin-top: 0px;" action="<{$xoops_url}>/search.php" method="post"><tr>
+    <td width="550" class="buttons_menu"><span class="right"> </span>
+      <table height="20" border="0" cellpadding="0" cellspacing="0" class="balk2">
+        <tr>
+          <td id="buttons_boven"><a href="<{$xoops_url}>">home</a></td>
+          <td id="buttons_boven"><a href="<{$xoops_url}>/modules/newbb/">forums</a></td>
+          <td id="buttons_boven"><a href="<{$xoops_url}>/modules/mydownloads/">downloads</a></td>
+          <td id="buttons_boven"><a href="<{$xoops_url}>/modules/mylinks/">links</a></td>
+          <td id="buttons_boven"><a href="<{$xoops_url}>/modules/xoopsfaq/">faq</a></td>
+          <td id="buttons_boven"><a href="<{$xoops_url}>/modules/contact/">contact</a></td>
+          <td id="buttons_boven"><a href="<{$xoops_url}>/modules/xtremguestbook/">guestbook</a></td>
+        </tr>
+      </table></td>
+    <td width="200" align="right" valign="top" class="buttons_menu"><div align="right">
+    <input type="text" name="query" size="14" />
+        <input type="hidden" name="action" value="results" />
+        <input name="submit2" type="image" value="Zoeken" src="<{$xoops_imageurl}>/images/zoeken.gif" alt="zoeken" align="top" />
+        <br />
+      </div></td>
+    <td align="right" class="buttons_menu">&nbsp;</td>
+  </tr></form>
+</table>
+<table align="center" class="body_table">
+  <tr>
+    <td><table border="0" cellpadding="0" cellspacing="0">
+          <tr> <{if $xoops_lblocks}>
+            <td rowspan="2" valign="top" id="leftcolumn"> 
+              <!-- Start left blocks loop -->
+            <{foreach item=block from=$xoops_lblocks}> <{include file="halo2/theme_blockleft.html"}> 
+            <{/foreach}> 
+              <!-- End left blocks loop -->
+            </td>
+          <{/if}>
+            <td height="17" valign="top" class="body_bar"><p><a href="<{$xoops_url}>/"> </a> <span class="right">
+            </span><span class="left" align="bottom"> 
+            <script type="text/javascript">
+<!--   // Array ofmonth Names
+var monthNames = new Array( "January","February","March","April","May","June","July","August","September","October","November","December");
+var now = new Date();
+thisYear = now.getYear();
+if(thisYear < 1900) {thisYear += 1900}; // corrections if Y2K display problem
+document.write(monthNames[now.getMonth()] + " " + now.getDate() + ", " + thisYear);
+// --></script>
+-<{if $xoops_isuser}> Welcome, <a href="<{$xoops_url}>/user.php"><{$xoops_uname}></a> <img src="<{$xoops_imageurl}>images/divider.gif" alt="" border="0" /><{else}> <a href="<{$xoops_url}>/register.php">Register!</a> or <{/if}></span> <span class="right"> <{if
+$xoops_isuser}> <a href="<{$xoops_url}>/user.php?op=logout">logout</a><{else}> <a href="<{$xoops_url}>/user.php">log
+in</a> <{/if}></span><span class="right"> </span></p>
+            </td><!-- Start right blocks loop -->
+			  <{if $xoops_showrblock == 1}>
+            <td rowspan="2" valign="top" id="rightcolumn"> <{foreach item=block from=$xoops_rblocks}> <{include file="halo2/theme_blockright.html"}> 
+            <{/foreach}> 
+              <!-- End right blocks loop -->
+            </td><{/if}></tr>
+          <tr> 
+            <td align="center">              <{$xoops_banner}><!-- Display center blocks if any -->
+              <{if $xoops_showcblock == 1}>
+              <table cellspacing="0">
+                <tr valign="top"> 
+                  <td colspan="2" id="centerCcolumn"> 
+                    <!-- Start center-center blocks loop -->
+                  <{foreach item=block from=$xoops_ccblocks}> <{include file="halo2/theme_blockcenter_c.html"}> 
+                  <{/foreach}> 
+                    <!-- End center-center blocks loop -->
+                  </td>
+                </tr>
+                <tr> 
+                  <td valign="top" id="centerLcolumn"> 
+                    <!-- Start center-left blocks loop -->
+                  <{foreach item=block from=$xoops_clblocks}> <{include file="halo2/theme_blockcenter_l.html"}> 
+                  <{/foreach}> 
+                    <!-- End center-left blocks loop -->
+                  </td>
+                  <td valign="top" id="centerRcolumn"> 
+                    <!-- Start center-right blocks loop -->
+                  <{foreach item=block from=$xoops_crblocks}> <{include file="halo2/theme_blockcenter_r.html"}> 
+                  <{/foreach}> 
+                    <!-- End center-right blocks loop -->
+                  </td>
+                </tr>
+              </table>
+            <{/if}> 
+              <!-- End display center blocks -->
+            <div id="content"> 
+              <p><{$xoops_contents}></p>
+              <p align="center"> <a href="#top">back to top</a><br />
+              </p>
+            </div></td>
+          
+              
+          </tr>
+      </table></td></tr></table>
+
+<div align="center"><br />
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td id="footerbar">Powered by <a href="http://www.xoops.org">XOOPS</a> 2.0.7<br />
+      <br />
+      Theme design by <a href="http://www.montisarts.com" target="_blank">Montisarts
+      Webdesign</a> 
+      &copy; 2004 | Designed for <a href="http://www.wurn.nl" target="_blank">wurn.nl</a></td>
+  </tr>
+</table>
+</body>
+</html>
